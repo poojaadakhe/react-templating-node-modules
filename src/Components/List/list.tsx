@@ -2,6 +2,8 @@ import React from "react";
 import "./list.css";
 export interface Props {
     className?: string;
+    demoData?: any;
+    listClass?:string;
     // items: string;
 }
 
@@ -10,8 +12,8 @@ export interface Props {
 // }
 
 const ListItem: React.FC<any> = props => {
-    let { className} = props;
-    return <li className={className || 'list-group-item'}>Cras justo odio</li>;
+    let { listClass, data } = props;
+    return data ? <li className={listClass || 'list-group-item'}>{data.name}</li> : <b>Loading..</b>;
 }
 
 // function ListItem(props: any) {
@@ -19,15 +21,14 @@ const ListItem: React.FC<any> = props => {
 // }
 
 const List: React.FC<Props> = props => {
-	let { className} = props;
-  
-        return (
-           
-            <ul  className={className || 'list-group'}>
-                {ListItem}
-            </ul>
-        );
-        
-    
+    let { className, demoData ,listClass } = props;
+
+    return (
+        demoData ? <ul className={className || 'list-group'}>
+            {demoData.listItems.map((item: any, i: number) => <ListItem key={i} data={item} listClass = {listClass} />)}
+        </ul> : <b>Loading</b>
+    );
+
+
 };
 export default List;

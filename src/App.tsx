@@ -4,6 +4,7 @@ import Button from './Components/Button/button';
 import Dropdown from './Components/Dropdown/dropdown';
 import List from './Components/List/list';
 import Radio from './Components/Radio/radio';
+import { DemoData } from './Components/demodata';
 const App: React.FC = () => {
   return (
     <div className="App">
@@ -16,7 +17,7 @@ const App: React.FC = () => {
             <Dropdown></Dropdown>
           </div>
           <div className="col-md-3">
-            <List></List>
+            <List demoData={DemoData} listClass="okkk"></List>
           </div>
           <div className="col-md-3">
             <Radio></Radio>
