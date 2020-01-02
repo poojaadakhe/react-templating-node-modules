@@ -1,24 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import Button from './Components/Button/button';
+import Dropdown from './Components/Dropdown/dropdown';
+import List from './Components/List/list';
+import Radio from './Components/Radio/radio';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <div className="row"><br></br>
+          <div className="col-md-3">
+            <Button className="btn btn-danger" label="Submit here"  /> 
+          </div>
+          <div className="col-md-3">
+            <Dropdown></Dropdown>
+          </div>
+          <div className="col-md-3">
+            <List></List>
+          </div>
+          <div className="col-md-3">
+            <Radio></Radio>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
