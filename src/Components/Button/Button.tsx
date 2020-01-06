@@ -3,7 +3,7 @@ import React from "react";
 export interface Props {
 	label?: string;
 	disabled?: boolean;
-	className?: string;
+	classes?: string;
 	style?: object;
 	dataToggle?: string;
 	key?: any;
@@ -16,7 +16,7 @@ const Button: React.FC<Props> = props => {
 		clickHandler,
 		children,
 		style,
-		className,
+		classes,
 		dataToggle,
 		key
 	} = props;
@@ -28,7 +28,7 @@ const Button: React.FC<Props> = props => {
 			onClick={clickHandler}
 			key={key}
 			className={
-				className ||
+				classes ||
 				"btn btn-primary"
 			}
 			style={style}

@@ -24,7 +24,7 @@ const Dropdown: React.FC<Props> = (props) => {
     return (
         <div className="btn-group" title={title}>
             <Button
-                className={btnClassName ||'btn btn-default dropdown-toggle'}
+                classes={btnClassName ||'btn btn-default dropdown-toggle'}
                 dataToggle='dropdown' label="selcet value "
             >
                 <Icon className={icon || 'caret'} />
