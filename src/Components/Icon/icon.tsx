@@ -2,15 +2,15 @@
 import React from 'react';
 
 export interface Props {
-    name: string,
+    className: string,
     style?: React.CSSProperties
 }
 
 const Icon: React.FC<Props> = (props) => {
-    let { name, style } = props;
+    let { className, style } = props;
 
     return (
-        <i className={name} style={style}></i>
+        <i className={className} style={style}></i>
     )
 }
 

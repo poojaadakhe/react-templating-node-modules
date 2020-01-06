@@ -3,10 +3,12 @@ import resolve from "rollup-plugin-node-resolve";
 import typescript from "rollup-plugin-typescript2";
 import replace from "rollup-plugin-replace";
 import commonjs from "rollup-plugin-commonjs";
-import { uglify } from "rollup-plugin-uglify";
 import postcss from "rollup-plugin-postcss";
 import react from 'react';
 import reactDom from 'react-dom';
+import pkg from './package.json';
+import generatePackageJson from 'rollup-plugin-generate-package-json';
+import { terser } from 'rollup-plugin-terser';
 
 const plugins = [
     postcss({
@@ -29,26 +31,56 @@ const plugins = [
     }),
     resolve(),
     typescript({
-        tsconfig: "tsconfig.rollup.json"
+        tsconfig: "tsconfig.rollup.json",
+        useTsconfigDeclarationDir: true,
+        objectHashIgnoreUnknownHack: true
     })
 ];
 
 export default [
-    
+
     {
-        plugins: [...plugins, uglify()],
-        input: "./src/index.tsx",
+        plugins: [...plugins,
+        generatePackageJson({
+            outputFolder: 'build',
+            baseContents: (pkg) => ({
+                name: pkg.name,
+                version: pkg.version,
+                description: pkg.description,
+                private: true,
+                main: pkg.main.replace('build/', ''),
+                module: pkg.module.replace('build/', ''),
+                typings: 'types',
+                peerDependencies: {
+                    "react": "^16",
+                    "react-dom": "^16"
+                }
+            })
+        })
+        ],
+        input: "./src/index.ts",
         external: ["react", "react-dom", "styled-components"],
-        output: {
-            globals: {
-                react: "React",
-                "react-dom": "ReactDOM",
-                "styled-components": "styled"
+        output: [
+            {
+                globals: {
+                    react: "React",
+                    "react-dom": "ReactDOM",
+                    "styled-components": "styled"
+                },
+                sourcemap: false,
+                file: pkg.main,
+                format: "cjs"
             },
-            name: "Artifi.Themeing",
-            sourcemap: false,
-            file: "./bundle/react-theming-library.js",
-            format: "iife"
-        }
+            {
+                globals: {
+                    react: "React",
+                    "react-dom": "ReactDOM",
+                    "styled-components": "styled"
+                },
+                sourcemap: false,
+                file: pkg.module,
+                format: "es"
+            }
+        ]
     }
 ];

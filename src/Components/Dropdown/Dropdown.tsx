@@ -1,7 +1,7 @@
 import React from 'react';
-import Icon from '../Icon/icon';
-import List from '../List/list';
-import Button from '../Button/button';
+import Icon from '../Icon/Icon';
+import List from '../List/List';
+import Button from '../Button/Button';
 import { DemoData } from '../demodata';
 
 
@@ -13,22 +13,24 @@ export interface Props {
     icon?: string,
     lists?: Array<any>,
     iconOnly?: boolean,
+    data?: any[],
+    btnClassName?: string,
     clickHandler?: (e: any) => void
 }
 
 const Dropdown: React.FC<Props> = (props) => {
-    let { title, icon } = props;
+    let { title, icon, data ,btnClassName } = props;
 
     return (
         <div className="btn-group" title={title}>
             <Button
-                className='btn btn-default dropdown-toggle'
+                className={btnClassName ||'btn btn-default dropdown-toggle'}
                 dataToggle='dropdown' label="selcet value "
             >
-                <Icon name={icon || 'caret'} />
+                <Icon className={icon || 'caret'} />
                 <span className="caret-right-corner" ></span>
             </Button>
-            <List demoData={DemoData}
+            <List demoData={data || DemoData}
                 className='dropdown-menu'
             />
         </div>

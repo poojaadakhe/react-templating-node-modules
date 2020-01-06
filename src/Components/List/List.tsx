@@ -1,5 +1,5 @@
 import React from "react";
-import "./list.css";
+import "./List.css";
 
 export interface Props {
     className?: string;
@@ -15,10 +15,9 @@ const ListItem: React.FC<any> = props => {
 
 const List: React.FC<Props> = props => {
     let { className, demoData ,listClass,style } = props;
-
     return (
         demoData ? <ul className={className || 'list-group'} style={style}> 
-            {demoData.listItems.map((item: any, i: number) => <ListItem key={i} data={item} listClass = {listClass} />) }
+            {demoData.map((item: any, i: number) => <ListItem key={i} data={item} listClass = {listClass} />) }
         </ul> : <b>Loading</b>
     );
 };
