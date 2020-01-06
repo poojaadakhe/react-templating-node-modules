@@ -17,7 +17,7 @@ const App: React.FC = () => {
             <Dropdown></Dropdown>
           </div>
           <div className="col-md-3">
-            <List demoData={DemoData} listClass="okkk"></List>
+            <List demoData={DemoData} listClass="list-group-item"></List>
           </div>
           <div className="col-md-3">
             <Radio></Radio>
