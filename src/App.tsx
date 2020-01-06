@@ -11,7 +11,7 @@ const App: React.FC = () => {
       <div className="container">
         <div className="row"><br></br>
           <div className="col-md-3">
-            <Button className="btn btn-danger" label="Submit here"  /> 
+            <Button className="btn btn-danger" label="Submit here" style={{color: "#ffffff"}} /> 
           </div>
           <div className="col-md-3">
             <Dropdown></Dropdown>

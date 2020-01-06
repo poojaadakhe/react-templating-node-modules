@@ -4,6 +4,7 @@ export interface Props {
 	label?: string;
 	disabled?: boolean;
 	className?: string;
+	style?: object;
 	dataToggle?: string;
 	key?: any;
 	clickHandler?: (event: any) => void;
@@ -14,6 +15,7 @@ const Button: React.FC<Props> = props => {
 		disabled,
 		clickHandler,
 		children,
+		style,
 		className,
 		dataToggle,
 		key
@@ -29,6 +31,7 @@ const Button: React.FC<Props> = props => {
 				className ||
 				"btn btn-primary"
 			}
+			style={style}
 			title={label || "Add Text"}
 		>			
 			{label ? label : < > Submit </>}
