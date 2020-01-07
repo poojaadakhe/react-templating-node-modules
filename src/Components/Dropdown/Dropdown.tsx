@@ -15,11 +15,12 @@ export interface Props {
     iconOnly?: boolean,
     data?: any[],
     btnClassName?: string,
+    dropdownListClassName?: string,
     clickHandler?: (e: any) => void
 }
 
 const Dropdown: React.FC<Props> = (props) => {
-    let { title, icon, data ,btnClassName } = props;
+    let { title, icon, data ,btnClassName,dropdownListClassName } = props;
 
     return (
         <div className="btn-group" title={title}>
@@ -31,7 +32,7 @@ const Dropdown: React.FC<Props> = (props) => {
                 <span className="caret-right-corner" ></span>
             </Button>
             <List demoData={data || DemoData}
-                className='dropdown-menu'
+                className='dropdown-menu' listClass = {dropdownListClassName || ''}
             />
         </div>
     )

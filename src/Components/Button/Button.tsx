@@ -36,7 +36,6 @@ const Button: React.FC<Props> = props => {
 		>			
 			{label ? label : < > Submit </>}
 			{ children ? children : <></>}
-			{/* {children || (label || "Add Text")} */}
 		</button>
 	);
 };
