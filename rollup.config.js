@@ -12,7 +12,8 @@ import { terser } from 'rollup-plugin-terser';
 
 const plugins = [
     postcss({
-        extensions: [".css"]
+        extensions: [".css"],
+        modules: true,
     }),
     replace({
         "process.env.NODE_ENV": JSON.stringify("production")

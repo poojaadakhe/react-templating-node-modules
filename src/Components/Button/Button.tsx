@@ -1,4 +1,7 @@
 import React from "react";
+import globalStyles from '../../assets/global-styles/bootstrap.min.module.css';
+import styles from './Button.module.css';
+import cx from 'classnames';
 
 export interface Props {
 	label?: string;
@@ -10,6 +13,8 @@ export interface Props {
 	clickHandler?: (event: any) => void;
 }
 const Button: React.FC<Props> = props => {
+
+	
 	let {
 		label,
 		disabled,
@@ -21,21 +26,25 @@ const Button: React.FC<Props> = props => {
 		key
 	} = props;
 
+	const buttonCss = [globalStyles['btn'], globalStyles['btn-primary'], styles.customBtn];
+
+	console.log({styles});
+	
 	return (
 		<button
 			data-toggle={dataToggle}
 			disabled={disabled}
 			onClick={clickHandler}
 			key={key}
-			className={
-				classes ||
-				"btn btn-primary"
-			}
+			className={cx(
+				classes || 
+				buttonCss.join(' ')
+			)}
 			style={style}
-			title={label || "Add Text"}
-		>			
-			{label ? label : < > Submit </>}
-			{ children ? children : <></>}
+			title={label || "Add Texttttteeee"}
+		>
+			{label ? label : < > Add Texttttteeeee </>}
+			{children ? children : <></>}
 		</button>
 	);
 };
