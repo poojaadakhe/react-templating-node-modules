@@ -35,7 +35,7 @@ const Tabs: React.FC<Props> = props => {
         </div>
         </div>
         <br></br>
-        {/* <div className="dropdown">
+        <div className="dropdown">
             <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dropdown button
             </button>
@@ -44,7 +44,7 @@ const Tabs: React.FC<Props> = props => {
                 <a className="dropdown-item" href="#">Another action</a>
                 <a className="dropdown-item" href="#">Something else here</a>
             </div>
-            </div> */}
+            </div>
             <hr></hr>
         <nav>
         <div className="nav nav-tabs" id="nav-tab1" role="tablist1">
