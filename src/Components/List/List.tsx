@@ -16,7 +16,7 @@ const ListItem: React.FC<any> = props => {
 const List: React.FC<Props> = props => {
     let { className, demoData ,listClass,style } = props;
     return (
-        demoData ? <ul className={className || 'list-group'} style={style}> 
+        demoData ? <ul className={className || 'artifi list-group'} style={style}> 
             {demoData.map((item: any, i: number) => <ListItem key={i} data={item} listClass = {listClass} />) }
         </ul> : <b>Loading</b>
     );

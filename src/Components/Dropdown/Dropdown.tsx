@@ -23,17 +23,19 @@ const Dropdown: React.FC<Props> = (props) => {
     let { title, icon, data ,btnClassName,dropdownListClassName } = props;
 
     return (
-        <div className="btn-group" title={title}>
-            <Button
-                classes={btnClassName ||'btn btn-default dropdown-toggle'}
-                dataToggle='dropdown' label="selcet value "
-            >
-                <Icon className={icon || 'caret'} />
-                <span className="caret-right-corner" ></span>
-            </Button>
-            <List demoData={data || DemoData}
-                className='dropdown-menu' listClass = {dropdownListClassName || ''}
-            />
+        <div className="artifi">
+            <div className="btn-group" title={title}>
+                <Button
+                    classes={btnClassName ||'btn btn-default dropdown-toggle'}
+                    dataToggle='dropdown' label="selcet value "
+                >
+                    <Icon className={icon || 'caret'} />
+                    <span className="caret-right-corner" ></span>
+                </Button>
+                <List demoData={data || DemoData}
+                    className='dropdown-menu' listClass = {dropdownListClassName || ''}
+                />
+            </div>
         </div>
     )
 }

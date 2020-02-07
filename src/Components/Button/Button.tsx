@@ -1,7 +1,5 @@
 import React from "react";
-import globalStyles from '../../assets/global-styles/bootstrap.min.module.css';
 import styles from './Button.module.css';
-import cx from 'classnames';
 
 export interface Props {
 	label?: string;
@@ -26,7 +24,6 @@ const Button: React.FC<Props> = props => {
 		key
 	} = props;
 
-	const buttonCss = [globalStyles['btn'], globalStyles['btn-primary'], styles.customBtn];
 
 	console.log({styles});
 	
@@ -36,10 +33,10 @@ const Button: React.FC<Props> = props => {
 			disabled={disabled}
 			onClick={clickHandler}
 			key={key}
-			className={cx(
-				classes || 
-				buttonCss.join(' ')
-			)}
+			className={
+				classes ||
+				"artifi btn btn-primary"
+			}
 			style={style}
 			title={label || "Add Texttttteeee"}
 		>
